@@ -10,16 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    //this code executes when the view controller loads
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func messageButtonPressed(_ sender: UIButton) {
+        if messageLabel.text == "You Are Awesome!" {
+            messageLabel.text = "You Are Great!"
+        } else {
+            messageLabel.text = "You Are Awesome!"
+        }
+        messageLabel.textColor = UIColor.red
     }
-
-
+    
 }
 
