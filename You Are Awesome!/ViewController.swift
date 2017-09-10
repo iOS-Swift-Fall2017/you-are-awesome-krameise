@@ -10,8 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var awesomeImage: UIImageView!
+    
+    
     @IBOutlet weak var messageLabel: UILabel!
-   var index = 0
+   var index = -1
+   var imageNumber = -1
+   let numberOfImages = 4
+    
     
     //this code executes when the view controller loads
     override func viewDidLoad() {
@@ -27,6 +33,7 @@ class ViewController: UIViewController {
                         "You brighten my day!", "You Are Da Bomb!", "I can't wait to use your app!", "Fabulous? That's you!" ]
         
         var newIndex = -1
+
         
         repeat {
             newIndex = Int(arc4random_uniform(UInt32(messages.count)))
@@ -34,6 +41,18 @@ class ViewController: UIViewController {
         
         index = newIndex
         messageLabel.text = messages[index]
+        
+        awesomeImage.isHidden = false
+        repeat {
+            newIndex = Int(arc4random_uniform(UInt32(numberOfImages)))
+        } while imageNumber == newIndex
+        
+        
+        imageNumber = newIndex
+        awesomeImage.image = UIImage(named: "image\(imageNumber)")
+        
+  
+        
         
         
 //        var randomIndex =
